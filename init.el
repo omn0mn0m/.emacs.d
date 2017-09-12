@@ -1,6 +1,19 @@
+;; ---------------------------------------------------------------------------
+;; Activates Melpa package archive
+;; ---------------------------------------------------------------------------
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/") t)
+
+;; ---------------------------------------------------------------------------
+;; Loads Dracula theme
+;; ---------------------------------------------------------------------------
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/dracula")
+(load-theme 'dracula t)
+
+;; ---------------------------------------------------------------------------
+;; Default init.el config
+;; ---------------------------------------------------------------------------
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
