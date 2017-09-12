@@ -6,10 +6,12 @@
 	     '("melpa" . "https://melpa.org/packages/") t)
 
 ;; ---------------------------------------------------------------------------
-;; Loads Dracula theme
+;; Cosmetic changes
 ;; ---------------------------------------------------------------------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/dracula")
 (load-theme 'dracula t)
+
+(tool-bar-mode -1)
 
 ;; ---------------------------------------------------------------------------
 ;; Default init.el config
@@ -27,7 +29,7 @@
  '(python-shell-completion-native-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
