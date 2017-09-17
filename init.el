@@ -21,7 +21,9 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/dracula")
 (load-theme 'dracula t)
 
-(tool-bar-mode -1)
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; Mode Line Changes
 (use-package smart-mode-line)
@@ -44,7 +46,7 @@
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
 ;; Magit
-(use-package magit)
+;;(use-package magit)
 
 ;; ---------------------------------------------------------------------------
 ;; Default init.el config
