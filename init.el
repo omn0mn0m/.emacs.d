@@ -38,12 +38,21 @@
 (dired-details-install)
 
 ;; ---------------------------------------------------------------------------
+;; Behavioural Changes
+;; ---------------------------------------------------------------------------
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; ---------------------------------------------------------------------------
 ;; Programming Stuff
 ;; ---------------------------------------------------------------------------
 
 ;; Octave
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+;; Arduino
+(setq auto-mode-alist
+      (cons '("\\.ino$" . c-mode) auto-mode-alist))
 
 ;; Magit
 ;;(use-package magit)
