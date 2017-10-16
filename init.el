@@ -1,19 +1,21 @@
 ;; ---------------------------------------------------------------------------
 ;; Package Stuff
 ;; ---------------------------------------------------------------------------
-(package-initialize)
-
 (require 'package)
+(setq package-enable-at-startup nil)
 (unless (assoc-default "melpa" package-archives)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
-(unless (assoc-default "org" package-archives)
-  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa") t))
+(package-initialize)
 
 (unless (package-installed-p 'use-package)
+  (package-refresh-contents)
   (package-install 'use-package))
 (setq use-package-verbose t)
 (setq use-package-always-ensure t)
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
 
 ;; ---------------------------------------------------------------------------
 ;; Cosmetic changes
@@ -37,6 +39,14 @@
 (setq-default dired-details-hidden-string "--- ")
 (dired-details-install)
 
+;; Startup Screen
+(defun my-inhibit-startup-screen-always ()
+  "Startup screen inhibitor for `command-line-functions`.
+Inhibits startup screen on the first unrecognised option."
+  (ignore (setq inhibit-startup-screen t)))
+
+(add-hook 'command-line-functions #'my-inhibit-startup-screen-always)
+
 ;; ---------------------------------------------------------------------------
 ;; Behavioural Changes
 ;; ---------------------------------------------------------------------------
@@ -57,6 +67,12 @@
 ;; Magit
 ;;(use-package magit)
 
+;; LaTeX
+(use-package tex
+  :ensure auctex)
+(use-package latex-preview-pane)
+(add-hook `LaTeX-mode-hook `latex-preview-pane-mode)
+
 ;; ---------------------------------------------------------------------------
 ;; Default init.el config
 ;; ---------------------------------------------------------------------------
@@ -74,7 +90,7 @@
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
+    (latex-preview-pane auctex dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
  '(python-shell-completion-native-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
