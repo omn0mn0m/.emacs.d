@@ -74,6 +74,11 @@ Inhibits startup screen on the first unrecognised option."
 (add-hook `LaTeX-mode-hook `latex-preview-pane-mode)
 
 ;; ---------------------------------------------------------------------------
+;; Other Packages
+;; ---------------------------------------------------------------------------
+(use-package org)
+
+;; ---------------------------------------------------------------------------
 ;; Default init.el config
 ;; ---------------------------------------------------------------------------
 (when (< emacs-major-version 24)
