@@ -95,7 +95,7 @@ Inhibits startup screen on the first unrecognised option."
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (latex-preview-pane auctex dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
+    (markdown-mode latex-preview-pane auctex dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
  '(python-shell-completion-native-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
