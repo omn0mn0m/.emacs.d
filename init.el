@@ -34,11 +34,6 @@
 (setq sml/no-confirm-load-theme t)  ;; Workaround to always asking for load
 (sml/setup)
 
-;; Dired
-(use-package dired-details)
-(setq-default dired-details-hidden-string "--- ")
-(dired-details-install)
-
 ;; Startup Screen
 (defun my-inhibit-startup-screen-always ()
   "Startup screen inhibitor for `command-line-functions`.
