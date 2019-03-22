@@ -4,7 +4,7 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (unless (assoc-default "melpa" package-archives)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -41,6 +41,17 @@ Inhibits startup screen on the first unrecognised option."
   (ignore (setq inhibit-startup-screen t)))
 
 (add-hook 'command-line-functions #'my-inhibit-startup-screen-always)
+
+;; Neotree for tree file explorer
+(use-package treemacs
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
 
 ;; ---------------------------------------------------------------------------
 ;; Behavioural Changes
@@ -90,7 +101,7 @@ Inhibits startup screen on the first unrecognised option."
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (markdown-mode latex-preview-pane auctex dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
+    (treemacs neotree markdown-mode latex-preview-pane auctex dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
  '(python-shell-completion-native-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
