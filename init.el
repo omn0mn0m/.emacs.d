@@ -2,10 +2,12 @@
 ;; Package Stuff
 ;; ---------------------------------------------------------------------------
 (require 'package)
-(setq package-enable-at-startup nil)
-(unless (assoc-default "melpa" package-archives)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
 (package-initialize)
+(setq package-enable-at-startup nil)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")
+                          ("elpa" . "http://tromey.com/elpa/")
+                          ("melpa" . "http://melpa.org/packages/")))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
