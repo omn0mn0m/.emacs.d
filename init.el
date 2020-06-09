@@ -1,6 +1,9 @@
 ;; ---------------------------------------------------------------------------
 ;; Package Stuff
 ;; ---------------------------------------------------------------------------
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file 'noerror)
+
 (require 'package)
 (package-initialize)
 (setq package-enable-at-startup nil)
@@ -97,21 +100,3 @@ Inhibits startup screen on the first unrecognised option."
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
- '(package-selected-packages
-   (quote
-    (treemacs neotree markdown-mode latex-preview-pane auctex dired-details miniedit smart-mode-line-powerline-theme smart-mode-line auto-compile use-package magit)))
- '(python-shell-completion-native-enable nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
