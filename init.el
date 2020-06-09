@@ -81,6 +81,10 @@ Inhibits startup screen on the first unrecognised option."
 (use-package latex-preview-pane)
 (add-hook `LaTeX-mode-hook `latex-preview-pane-mode)
 
+;; Ren'Py
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(load "renpy")
+
 ;; ---------------------------------------------------------------------------
 ;; Other Packages
 ;; ---------------------------------------------------------------------------
