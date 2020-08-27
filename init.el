@@ -5,20 +5,22 @@
 (load custom-file 'noerror)
 
 (require 'package)
-(package-initialize)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")
                           ("elpa" . "http://tromey.com/elpa/")
                           ("melpa" . "http://melpa.org/packages/")))
+(package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
+
+;; use-package setup
 (eval-when-compile
   (require 'use-package))
+(setq use-package-verbose t)
+(setq use-package-always-ensure t)
 
 (require 'bind-key)
 
@@ -32,12 +34,9 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
-;; Mode Line Changes
-(use-package smart-mode-line)
-(use-package smart-mode-line-powerline-theme)
-(setq sml/theme 'powerline)
-(setq sml/no-confirm-load-theme t)  ;; Workaround to always asking for load
-(sml/setup)
+;; Telephone Line
+(use-package telephone-line)
+(telephone-line-mode 1)
 
 ;; Startup Screen
 (defun my-inhibit-startup-screen-always ()
@@ -47,21 +46,22 @@ Inhibits startup screen on the first unrecognised option."
 
 (add-hook 'command-line-functions #'my-inhibit-startup-screen-always)
 
-;; Neotree for tree file explorer
-(use-package treemacs
-  :bind
-  (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
-
 ;; ---------------------------------------------------------------------------
 ;; Behavioural Changes
 ;; ---------------------------------------------------------------------------
+;; Replaces yes or no with y or n shorthands
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Replaces marked region with what is being typed
+(delete-selection-mode 1)
+
+;; Projectile
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))
 
 ;; ---------------------------------------------------------------------------
 ;; Programming Stuff
@@ -76,7 +76,8 @@ Inhibits startup screen on the first unrecognised option."
       (cons '("\\.ino$" . c-mode) auto-mode-alist))
 
 ;; Magit
-;;(use-package magit)
+(use-package magit
+ :bind (("C-x g" . magit)))
 
 ;; LaTeX
 (use-package tex
@@ -92,11 +93,3 @@ Inhibits startup screen on the first unrecognised option."
 ;; Other Packages
 ;; ---------------------------------------------------------------------------
 (use-package org)
-
-;; ---------------------------------------------------------------------------
-;; Default init.el config
-;; ---------------------------------------------------------------------------
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
