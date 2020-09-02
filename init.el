@@ -24,6 +24,10 @@
 
 (require 'bind-key)
 
+;; Load git submodules location
+(let ((default-directory "~/.emacs.d/lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; ---------------------------------------------------------------------------
 ;; Cosmetic changes
 ;; ---------------------------------------------------------------------------
@@ -86,10 +90,13 @@ Inhibits startup screen on the first unrecognised option."
 (add-hook `LaTeX-mode-hook `latex-preview-pane-mode)
 
 ;; Ren'Py
-(add-to-list 'load-path "~/.emacs.d/lisp/")
 (load "renpy")
 
 ;; ---------------------------------------------------------------------------
 ;; Other Packages
 ;; ---------------------------------------------------------------------------
 (use-package org)
+
+;; Elcord - For Discord Rich Presence
+(load "elcord")
+(elcord-mode)
