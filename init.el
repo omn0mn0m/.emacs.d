@@ -92,6 +92,12 @@ Inhibits startup screen on the first unrecognised option."
 ;; Ren'Py
 (load "renpy")
 
+;; Elixir
+(use-package elixir-mode)
+
+;; PlatformIO
+(use-package platformio-mode)
+
 ;; ---------------------------------------------------------------------------
 ;; Other Packages
 ;; ---------------------------------------------------------------------------
