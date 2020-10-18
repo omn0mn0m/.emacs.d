@@ -1,27 +1,29 @@
 ;; ---------------------------------------------------------------------------
 ;; Package Stuff
 ;; ---------------------------------------------------------------------------
+(package-initialize)
+
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")
                           ("elpa" . "http://tromey.com/elpa/")
                           ("melpa" . "http://melpa.org/packages/")))
-(package-initialize)
 
+;; use-package setup
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
-;; use-package setup
-(eval-when-compile
-  (require 'use-package))
 (setq use-package-verbose t)
 (setq use-package-always-ensure t)
-
+(eval-when-compile
+  (require 'use-package))
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+  
 (require 'bind-key)
 
 ;; Load git submodules location
@@ -59,6 +61,9 @@ Inhibits startup screen on the first unrecognised option."
 ;; Replaces marked region with what is being typed
 (delete-selection-mode 1)
 
+;; Sentences end with a single space
+(setq sentence-end-double-space nil)
+
 ;; Projectile
 (use-package projectile
   :ensure t
@@ -66,6 +71,11 @@ Inhibits startup screen on the first unrecognised option."
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
+  
+;; Minibuffer Editing
+(use-package miniedit
+  :commands minibuffer-edit
+  :init (miniedit-install))
 
 ;; ---------------------------------------------------------------------------
 ;; Programming Stuff
