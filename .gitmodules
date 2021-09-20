@@ -6,4 +6,4 @@
 	url = ../../Mstrodl/elcord.git
 [submodule "lisp/renpy-mode"]
 	path = lisp/renpy-mode
-	url = ../..Reagankm/renpy-mode.git
+	url = ../../Reagankm/renpy-mode.git
