@@ -1,9 +1,9 @@
 [submodule "themes/dracula"]
 	path = themes/dracula
-	url = ../../../dracula/emacs.git
+	url = ../../dracula/emacs.git
 [submodule "lisp/elcord"]
 	path = lisp/elcord
-	url = ../../../Mstrodl/elcord.git
+	url = ../../Mstrodl/elcord.git
 [submodule "lisp/renpy-mode"]
 	path = lisp/renpy-mode
-	url = ../../..Reagankm/renpy-mode.git
+	url = ../..Reagankm/renpy-mode.git
