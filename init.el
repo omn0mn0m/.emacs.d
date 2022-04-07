@@ -125,11 +125,16 @@ Inhibits startup screen on the first unrecognised option."
 ;; PlatformIO
 (use-package platformio-mode)
 
+;; Markdown
+(use-package markdown-mode)
+
 ;; ---------------------------------------------------------------------------
 ;; Other Packages
 ;; ---------------------------------------------------------------------------
 (use-package org)
 (electric-indent-mode -1)
+
+(use-package ledger-mode)
 
 ;; Elcord - For Discord Rich Presence
 (load "elcord")
