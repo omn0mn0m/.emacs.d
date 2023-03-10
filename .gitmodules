@@ -3,7 +3,7 @@
 	url = ../../dracula/emacs.git
 [submodule "lisp/elcord"]
 	path = lisp/elcord
-	url = ../../Mstrodl/elcord.git
+	url = https://github.com/Mstrodl/elcord.git
 [submodule "lisp/renpy-mode"]
 	path = lisp/renpy-mode
 	url = ../../Reagankm/renpy-mode.git
