@@ -34,7 +34,8 @@
 ;; Cosmetic changes
 ;; ---------------------------------------------------------------------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/dracula")
-(load-theme 'dracula t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/catppuccin")
+(load-theme 'catppuccin t)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -135,6 +136,8 @@ Inhibits startup screen on the first unrecognised option."
 (electric-indent-mode -1)
 
 (use-package ledger-mode)
+
+(use-package org-journal)
 
 ;; Elcord - For Discord Rich Presence
 (load "elcord")

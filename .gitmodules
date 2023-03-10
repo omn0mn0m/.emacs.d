@@ -7,3 +7,6 @@
 [submodule "lisp/renpy-mode"]
 	path = lisp/renpy-mode
 	url = ../../Reagankm/renpy-mode.git
+[submodule "themes/catppuccin"]
+	path = themes/catppuccin
+	url = git@github.com:catppuccin/emacs.git
