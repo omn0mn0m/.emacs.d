@@ -133,6 +133,12 @@ Inhibits startup screen on the first unrecognised option."
 ;; Markdown
 (use-package markdown-mode)
 
+;; YAML
+(use-package yaml-mode)
+(add-hook 'yaml-mode-hook
+          '(lambda ()
+             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
 ;; LSP Stuff
 (use-package lsp-mode
   :init
