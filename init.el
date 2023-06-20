@@ -53,6 +53,10 @@ Inhibits startup screen on the first unrecognised option."
 
 (add-hook 'command-line-functions #'my-inhibit-startup-screen-always)
 
+;; Show relative line numbers
+(global-display-line-numbers-mode t)
+(setq display-line-numbers-type 'relative)
+
 ;; ---------------------------------------------------------------------------
 ;; Behavioural Changes
 ;; ---------------------------------------------------------------------------
@@ -117,6 +121,12 @@ Inhibits startup screen on the first unrecognised option."
 (use-package elixir-mode)
 
 (use-package web-mode)
+;; Enabling web-mode for common file types
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
+;; Enabling web-mode for less common file types
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
@@ -124,6 +134,14 @@ Inhibits startup screen on the first unrecognised option."
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; set web indent to 2 (normally I like 4 for other types of work)
+(defun my-web-mode-hook ()
+  "Hooks for web-mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  )
+(add-hook 'web-mode-hook' 'my-web-mode-hook')
 
 (use-package pug-mode)
 
