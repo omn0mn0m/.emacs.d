@@ -1,6 +1,3 @@
-[submodule "themes/dracula"]
-	path = themes/dracula
-	url = ../../dracula/emacs.git
 [submodule "lisp/elcord"]
 	path = lisp/elcord
 	url = https://github.com/Mstrodl/elcord.git
