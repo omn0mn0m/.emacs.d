@@ -33,7 +33,6 @@
 ;; ---------------------------------------------------------------------------
 ;; Cosmetic changes
 ;; ---------------------------------------------------------------------------
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/dracula")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/catppuccin")
 (load-theme 'catppuccin t)
 
@@ -92,6 +91,9 @@ Inhibits startup screen on the first unrecognised option."
 (use-package aggressive-indent)
 (global-aggressive-indent-mode 1)
 
+;; Debugger
+(use-package bug-hunter)
+
 ;; ---------------------------------------------------------------------------
 ;; Programming Stuff
 ;; ---------------------------------------------------------------------------
@@ -139,9 +141,8 @@ Inhibits startup screen on the first unrecognised option."
   "Hooks for web-mode."
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  )
-(add-hook 'web-mode-hook' 'my-web-mode-hook')
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook 'my-web-mode-hook)
 
 (use-package pug-mode)
 
