@@ -113,8 +113,6 @@ Inhibits startup screen on the first unrecognised option."
 ;; LaTeX
 (use-package tex
   :ensure auctex)
-(use-package latex-preview-pane)
-(add-hook `LaTeX-mode-hook `latex-preview-pane-mode)
 
 ;; Ren'Py
 (load "renpy")
