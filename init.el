@@ -156,6 +156,9 @@ Inhibits startup screen on the first unrecognised option."
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
+;; R
+(use-package ess)
+
 ;; LSP Stuff
 (use-package lsp-mode
   :init
@@ -182,6 +185,8 @@ Inhibits startup screen on the first unrecognised option."
 ;; ---------------------------------------------------------------------------
 (use-package org)
 (electric-indent-mode -1)
+(setq org-todo-keywords
+      '((sequence "TODO" "DOING" "|" "DONE")))
 
 (use-package ledger-mode)
 
