@@ -159,6 +159,9 @@ Inhibits startup screen on the first unrecognised option."
 ;; R
 (use-package ess)
 
+;; Rust
+(use-package rust-mode)
+
 ;; LSP Stuff
 (use-package lsp-mode
   :init
