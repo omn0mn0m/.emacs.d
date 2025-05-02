@@ -1,0 +1,1 @@
+;;; post-early-init.el --- This file is loaded after early-init.el but before init.el. It is useful for setting up configurations that depend on the early initialization but need to be set before the main initialization begins. -*- no-byte-compile: t; lexical-binding: t; -*-
