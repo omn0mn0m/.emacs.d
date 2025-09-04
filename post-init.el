@@ -321,7 +321,7 @@
              easysession-load-including-geometry)
 
   :custom
-  (easysession-mode-line-misc-info t)  ; Display the session in the modeline
+  ;;(easysession-mode-line-misc-info t)  ; Display the session in the modeline
   (easysession-save-interval (* 10 60))  ; Save every 10 minutes
 
   :init
@@ -511,6 +511,8 @@
 
 ;; Display the time in the modeline
 (add-hook 'after-init-hook #'display-time-mode)
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
 
 ;; Paren match highlighting
 (add-hook 'after-init-hook #'show-paren-mode)
@@ -594,3 +596,14 @@
 
 ;; R
 (use-package ess)
+
+;; Hides minor modes in the mode-line
+(use-package minions
+  :config (minions-mode 1))
+
+;; Eat with Eshell
+(use-package eat
+  :ensure t
+  :config
+  (eat-eshell-mode)
+  (setq eshell-visual-commands '()))
